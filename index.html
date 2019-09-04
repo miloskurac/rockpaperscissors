@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+    var moves = ['rock', 'paper', 'scissors']
+
+    function computerPlay(){
+        var move = moves[Math.floor(Math.random()*moves.length)]
+        return move
+    }
+    
+    var computerScore = 0
+    var playerScore = 0
+    
+    function playRound(playerSelection, computerSelection){
+        playerSelection = playerSelection.toLowerCase()
+        if(playerSelection == computerSelection){
+            alert(`It's a tie. You both chose ${computerSelection}.`)
+            computerScore++
+            playerScore++
+        }else if(playerSelection == 'rock' && computerSelection == 'paper'){
+            alert(`You lose. The computer chose ${computerSelection}.`)
+            computerScore++
+        }else if(playerSelection == 'rock' && computerSelection == 'scissors'){
+            alert(`You win. The computer chose ${computerSelection}.`)
+            playerScore++
+        }else if(playerSelection == 'paper' && computerSelection == 'rock'){
+            alert(`You win. The computer chose ${computerSelection}.`)
+            playerScore++
+        }else if(playerSelection == 'paper' && computerSelection == 'scissors'){
+            alert(`You lose. The computer chose ${computerSelection}.`)
+            computerScore++
+        }else if(playerSelection == 'scissors' && computerSelection == 'rock'){
+            alert(`You lose. The computer chose ${computerSelection}.`)
+            computerScore++
+        }else if(playerSelection == 'scissors' && computerSelection == 'paper'){
+            alert(`You win. The computer chose ${computerSelection}.`)
+            playerScore++
+        }
+
+
+
+
+    }
+
+ 
+
+    function game(){
+    const playerSelection = prompt("Rock, paper or scissors?")
+    const computerSelection = computerPlay()
+    console.log(playRound(playerSelection, computerSelection))
+    alert("The score is Player-User:" + playerScore + "-" + computerScore)
+    }
+
+
+    var counter = 0
+
+    while(counter < 5){
+        game()
+        counter++
+        
+    }
+    
+    
+    </script>
+</body>
+</html>
